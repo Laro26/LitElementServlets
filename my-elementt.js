@@ -148,7 +148,7 @@
 
           case "2":
                 
-            this.data=data.filter(i=>((Date.now()-Date.parse(i.birthDate))/31556900000)>18)
+            this.data=data.filter(i=>(((Date.now()-Date.parse(i.birthDate))/31556900000)>18) && i.occupation=="desocupado")
             console.log(this.data)
           
            break;
@@ -174,8 +174,8 @@
  
      fetch("http://localhost:8080/tp5Servlet/todos").then(res => res.json()).then(data => {
       // console.log(data)
-       this.data = data
-       this.search= this.data.filter(i =>i.numId==this.ID)
+       //this.data = data
+       this.search= data.filter(i =>i.numId==this.ID)
        //console.log(this.search)
        if(this.search.length != 0 ){
         this.idInformacion=this.search[0].idInformacion
